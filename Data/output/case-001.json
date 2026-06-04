@@ -1,0 +1,73 @@
+{
+  "case_id": "case-001",
+  "documents": {
+    "loan_application_form": {
+      "present": true,
+      "source_file": "loan_application_form.pdf",
+      "fields": {
+        "full_name": "Mohamed Benali",
+        "date_of_birth": "12/05/1988",
+        "gender": "Male",
+        "marital_status": "Married",
+        "dependents": 2,
+        "education": "Graduate",
+        "self_employed": false,
+        "applicant_income": 150000,
+        "coapplicant_income": 50000,
+        "loan_amount_requested": 5000000,
+        "loan_term_months": 120,
+        "property_area": "Urban",
+        "declared_purpose": "Home Purchase",
+        "credit_history": 1
+      }
+    },
+    "payslip": {
+      "present": true,
+      "source_file": "payslip.pdf",
+      "fields": {
+        "employee_name": "Mohamed Benali",
+        "employer_name": "SONATRACH S.P.A.",
+        "employment_type": "Permanent",
+        "pay_period": "March 2025 (01/03/2025 · 31/03/2025)",
+        "gross_salary": 150000,
+        "net_salary": 122000,
+        "deductions": 28000,
+        "currency": "DZD (Algerian Dinar)"
+      }
+    },
+    "bank_statement": {
+      "present": true,
+      "source_file": "bank_statement.pdf",
+      "fields": {
+        "account_holder_name": "Mohamed Benali",
+        "bank_name": "Banque Nationale d'Algérie (BNA)",
+        "statement_period": "01/01/2025 · 31/03/2025",
+        "average_monthly_inflow": 150000,
+        "average_monthly_outflow": 103333,
+        "closing_balance": 990000,
+        "currency": "DZD"
+      }
+    }
+  },
+  "status": "completed",
+  "validation": {
+    "issues": [],
+    "status": "passed"
+  },
+  "fraud_detection": {
+    "is_fraud": false,
+    "fraud_score": 0.0,
+    "signals": [],
+    "threshold": 0.4,
+    "justification": "Based on the fraud assessment, the individual has a 0% fraud score, which is below the 40% threshold, indicating that they are not a high-risk candidate for fraud. The assessment is also marked as \"Flagged: False\" and does not contain any detected signals, suggesting a clean record with no inconsistencies or red flags."
+  },
+  "agent_decision": {
+    "risk_level": "Low",
+    "recommendation": "Approve",
+    "confidence": 0.9,
+    "justification": "We are pleased to approve Mohamed Benali's loan application given his strong financial profile, including a low risk level, adequate income, and a debt-to-income ratio within acceptable limits. With all checks passed and a credit history indicating no previous issues, we believe he poses a minimal credit risk and is a suitable candidate for a 5,000,000 DZD loan over 120 months.",
+    "reasons": [
+      "All checks passed"
+    ]
+  }
+}

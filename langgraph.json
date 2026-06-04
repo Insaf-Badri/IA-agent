@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "loan_pipeline": "./agents/loan_graph.py:loan_agent"
+  },
+  "env": ".env"
+}

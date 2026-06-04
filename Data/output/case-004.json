@@ -1,0 +1,80 @@
+{
+  "case_id": "case-004",
+  "documents": {
+    "loan_application_form": {
+      "present": true,
+      "source_file": "loan_application_form.pdf",
+      "fields": {
+        "full_name": "Youssef Khelil",
+        "date_of_birth": "18/03/1985",
+        "gender": "Male",
+        "marital_status": "Single",
+        "dependents": 0,
+        "education": "Not Graduate",
+        "self_employed": true,
+        "applicant_income": 500000,
+        "coapplicant_income": 0,
+        "loan_amount_requested": 15000000,
+        "loan_term_months": 36,
+        "property_area": "Urban",
+        "declared_purpose": "Business Expansion",
+        "credit_history": 0
+      }
+    },
+    "payslip": {
+      "present": true,
+      "source_file": "payslip.pdf",
+      "fields": {
+        "employee_name": "Y. Khelil",
+        "employer_name": "Self Employed",
+        "employment_type": "Self-Employed",
+        "pay_period": "April 2025",
+        "gross_salary": 45000,
+        "net_salary": 40000,
+        "deductions": 5000,
+        "currency": "DZD"
+      }
+    },
+    "bank_statement": {
+      "present": true,
+      "source_file": "bank_statement.pdf",
+      "fields": {
+        "account_holder_name": "Youssef Khelil",
+        "bank_name": "BADR Bank",
+        "statement_period": "01/01/2025 - 31/03/2025",
+        "average_monthly_inflow": 42000,
+        "average_monthly_outflow": 40000,
+        "closing_balance": 8000,
+        "currency": "DZD"
+      }
+    }
+  },
+  "status": "completed",
+  "validation": {
+    "issues": [
+      "Names mismatch: form='Youssef Khelil' payslip='Y. Khelil' bank='Youssef Khelil'",
+      "Income mismatch: declared=500000.0, gross_salary=45000.0 (>10% difference)",
+      "Monthly repayment (416667) exceeds 50% of total income (500000)"
+    ],
+    "status": "failed"
+  },
+  "fraud_detection": {
+    "is_fraud": true,
+    "fraud_score": 0.9998,
+    "signals": [
+      "Income gap: declared 500,000 vs detected 45,000 (1011% difference)",
+      "Name mismatch across documents"
+    ],
+    "threshold": 0.4,
+    "justification": "This individual has been flagged for fraud due to a high fraud score (100%) that exceeds the threshold of 40%, as a result of significant discrepancies between declared and detected income (1011% difference) and a name mismatch across different documents. Additionally, the address_mismatch and low doc_auth_score suggest further irregularities."
+  },
+  "agent_decision": {
+    "risk_level": "Very High",
+    "recommendation": "Reject",
+    "confidence": 0.95,
+    "justification": "After carefully evaluating the loan application from Youssef Khelil, I have made the decision to reject it due to extremely high risk factors, including a very high fraud score of 100% detected by our machine learning model, which suggests potential manipulation. This, coupled with a significantly high debt-to-income ratio of 83% and a limited credit history, warrants a cautious approach to minimize potential financial losses for the institution.",
+    "reasons": [
+      "Fraud detected by ML model"
+    ]
+  }
+}

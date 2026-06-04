@@ -1,0 +1,77 @@
+{
+  "case_id": "case-002",
+  "documents": {
+    "loan_application_form": {
+      "present": true,
+      "source_file": "loan_application_form.pdf",
+      "fields": {
+        "full_name": "Karim Ziani",
+        "date_of_birth": "03/11/1990",
+        "gender": "Male",
+        "marital_status": "Single",
+        "dependents": 0,
+        "education": "Not Graduate",
+        "self_employed": true,
+        "applicant_income": 40000,
+        "coapplicant_income": 0,
+        "loan_amount_requested": 8000000,
+        "loan_term_months": 60,
+        "property_area": "Rural",
+        "declared_purpose": "Business Expansion",
+        "credit_history": 0,
+        "marriage_status": "",
+        "loan_term": "60"
+      }
+    },
+    "payslip": {
+      "present": true,
+      "source_file": "payslip.pdf",
+      "fields": {
+        "employee_name": "Karim Ziani",
+        "employer_name": "Self Employed",
+        "employment_type": "Self-Employed",
+        "pay_period": "February 2025",
+        "gross_salary": 40000,
+        "net_salary": 35000,
+        "deductions": 5000,
+        "currency": "DZD"
+      }
+    },
+    "bank_statement": {
+      "present": true,
+      "source_file": "bank_statement.pdf",
+      "fields": {
+        "account_holder_name": "Karim Ziani",
+        "bank_name": "Banque Extérieure d'Algérie",
+        "statement_period": "01/01/2025 - 31/03/2025",
+        "average_monthly_inflow": 38000,
+        "average_monthly_outflow": 36000,
+        "closing_balance": 45000,
+        "currency": "DZD"
+      }
+    }
+  },
+  "status": "completed",
+  "validation": {
+    "issues": [
+      "Monthly repayment (133333) exceeds 50% of total income (40000)"
+    ],
+    "status": "failed"
+  },
+  "fraud_detection": {
+    "is_fraud": false,
+    "fraud_score": 0.002,
+    "signals": [],
+    "threshold": 0.4,
+    "justification": "This account has been assessed as low-risk for fraud with a 0% fraud score, well below the 40% threshold. The analysis found no significant red flags, including a matched declared and detected income, no address mismatches, and a high document authentication score of 0.8."
+  },
+  "agent_decision": {
+    "risk_level": "Very High",
+    "recommendation": "Reject",
+    "confidence": 0.9,
+    "justification": "We reject Karim Ziani's loan application due to extremely high DTI and critical validation failures, as the proposed monthly repayment of 133,333 DZD far exceeds 50% of his total income of 40,000 DZD, resulting in an unsustainable debt obligation. Furthermore, his lack of credit history and low net salary increase his risk profile, warranting a cautious underwriting stance and denial of the loan request.",
+    "reasons": [
+      "Critical validation failures: Monthly repayment (133333) exceeds 50% of total income (40000)"
+    ]
+  }
+}

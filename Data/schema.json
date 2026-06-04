@@ -1,0 +1,67 @@
+{
+  "case_id": "",
+  "created_at": "",
+  "status": "",
+
+  "documents": {
+
+    "loan_application_form": {
+      "present": null,
+      "source_file": "",
+      "extraction_confidence": null,
+      "fields": {
+        "full_name": "",
+        "date_of_birth": "",
+        "gender": "",
+        "marital_status": "",
+        "dependents": null,
+        "education": "",
+        "self_employed": null,
+        "applicant_income": null,
+        "coapplicant_income": null,
+        "loan_amount_requested": null,
+        "loan_term_months": null,
+        "property_area": "",
+        "declared_purpose": "",
+        "credit_history": null
+      }
+    },
+
+    "payslip": {
+      "present": null,
+      "source_file": "",
+      "extraction_confidence": null,
+      "fields": {
+        "employee_name": "",
+        "employer_name": "",
+        "employment_type": "",
+        "pay_period": "",
+        "gross_salary": null,
+        "net_salary": null,
+        "deductions": null,
+        "currency": ""
+      }
+    },
+
+    "bank_statement": {
+      "present": null,
+      "source_file": "",
+      "extraction_confidence": null,
+      "fields": {
+        "account_holder_name": "",
+        "bank_name": "",
+        "statement_period": "",
+        "average_monthly_inflow": null,
+        "average_monthly_outflow": null,
+        "closing_balance": null,
+        "currency": ""
+      }
+    }
+  },
+
+  "validation": {
+    "status": null,
+    "issues": []
+  }
+
+}

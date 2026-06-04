@@ -1,0 +1,74 @@
+{
+  "case_id": "case-003",
+  "documents": {
+    "loan_application_form": {
+      "present": true,
+      "source_file": "loan_application_form.pdf",
+      "fields": {
+        "full_name": "Sara Mansouri",
+        "date_of_birth": "25/08/1992",
+        "gender": "Female",
+        "marital_status": "Married",
+        "dependents": 1,
+        "education": "Graduate",
+        "self_employed": false,
+        "applicant_income": 80000,
+        "coapplicant_income": 30000,
+        "loan_amount_requested": 3500000,
+        "loan_term_months": 84,
+        "property_area": "Semiurban",
+        "declared_purpose": "Home Purchase",
+        "credit_history": 1
+      }
+    },
+    "payslip": {
+      "present": true,
+      "source_file": "payslip.pdf",
+      "fields": {
+        "employee_name": "Sara Mansouri",
+        "employer_name": "Ministère de l'Education Nationale",
+        "employment_type": "Civil Servant",
+        "pay_period": "March 2025",
+        "gross_salary": 80000,
+        "net_salary": 66000,
+        "deductions": 14000,
+        "currency": "DZD"
+      }
+    },
+    "bank_statement": {
+      "present": true,
+      "source_file": "bank_statement.pdf",
+      "fields": {
+        "account_holder_name": "Sara Mansouri",
+        "bank_name": "Crédit Populaire d'Algérie",
+        "statement_period": "01/01/2025 - 31/03/2025",
+        "average_monthly_inflow": 80000,
+        "average_monthly_outflow": 62000,
+        "closing_balance": 320000,
+        "currency": "DZD"
+      }
+    }
+  },
+  "status": "completed",
+  "validation": {
+    "issues": [],
+    "status": "passed"
+  },
+  "fraud_detection": {
+    "is_fraud": false,
+    "fraud_score": 0.0,
+    "signals": [],
+    "threshold": 0.4,
+    "justification": "Based on the provided fraud assessment, the individual's risk of committing fraud appears to be extremely low, with a 0% fraud score that is well below the established threshold of 40%. The assessment indicates a clean slate, with no red flags raised and all checked features aligning perfectly, including matching income declared and detected, a perfect address verification score, and a high document authentication score."
+  },
+  "agent_decision": {
+    "risk_level": "Medium",
+    "recommendation": "Approve with Conditions",
+    "confidence": 0.75,
+    "justification": "We approve Sara Mansouri's loan application with conditions due to her elevated Debt-to-Income (DTI) ratio of 38% and loan debt coverage ratio of 4.4x annual net salary, posing moderate credit risk. However, her clean credit history, zero fraud score, and manageable closing balance of 320,000 DZD suggest a relatively low risk of default, allowing for conditional approval.",
+    "reasons": [
+      "DTI ratio elevated: 38%",
+      "Loan is 4.4x annual net salary"
+    ]
+  }
+}

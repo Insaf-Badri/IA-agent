@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pdfplumber
+groq
+reportlab
+joblib
+pandas
+scikit-learn
+psycopg2-binary
+minio
+celery[redis]
+redis
+langgraph
+langchain-core
+python-multipart
+httpx
