@@ -8,7 +8,7 @@ joblib
 pandas
 scikit-learn
 psycopg2-binary
-minio
+boto3
 celery[redis]
 redis
 langgraph
