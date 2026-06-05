@@ -1,0 +1,49 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Huawei SWR
+        run: |
+          docker login \
+            -u ${{ secrets.SWR_USERNAME }} \
+            -p ${{ secrets.SWR_PASSWORD }} \
+            ${{ secrets.SWR_ENDPOINT }}
+
+      - name: Build images
+        run: |
+          docker build -t ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-api:latest .
+          docker build -t ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-worker:latest .
+
+      - name: Install LangGraph CLI and build langgraph image
+        run: |
+          pip install langgraph-cli
+          langgraph build -t ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-langgraph:latest
+
+      - name: Push images to SWR
+        run: |
+          docker push ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-api:latest
+          docker push ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-worker:latest
+          docker push ${{ secrets.SWR_ENDPOINT }}/insaf-cloud/loan-langgraph:latest
+
+      - name: Deploy to ECS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ECS_HOST }}
+          username: ${{ secrets.ECS_USERNAME }}
+          key: ${{ secrets.ECS_SSH_KEY }}
+          script: |
+            cd /root/loan-agent
+            docker-compose pull
+            docker-compose down
+            docker-compose up -d
+            docker ps
